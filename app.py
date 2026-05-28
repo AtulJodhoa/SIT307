@@ -39,7 +39,7 @@ input_data = pd.DataFrame(
     columns=model_features
 )
 
-input_data.loc[0] = 0
+input_data.loc[0] = 0.0
 
 input_data.loc[0, "bedrooms"] = bedrooms
 input_data.loc[0, "bathrooms"] = bathrooms
@@ -53,12 +53,12 @@ input_data.loc[0, "land_per_room"] = land_per_room
 suburb_column = "suburb_" + suburb
 
 if suburb_column in input_data.columns:
-    input_data.loc[0, suburb_column] = 1
+    input_data.loc[0, suburb_column] = 1.0
 
 property_column = "property_type_" + property_type
 
 if property_column in input_data.columns:
-    input_data.loc[0, property_column] = 1
+    input_data.loc[0, property_column] = 1.0
 
 if st.button("Predict Price"):
     prediction_log = model.predict(input_data)[0]
